@@ -11,11 +11,6 @@ echo "window_width:  ${window_width}"
 echo "window_height: ${window_height}"
 echo "extra_args:    ${extra_args}"
 
-nativefier -V
-convert --version
-tar --version
-wget -V
-
 favicon=$(basename "$favicon_url")
 wget "$favicon_url"
 
@@ -24,8 +19,8 @@ if [  "${favicon##*.}" != "png" ];then
     favicon="favicon.png"
 fi
 
-echo nativefier --name "${app_name}" --icon "./${favicon}" --width "${window_width}" --height "${window_height}" --user-agent "${app_name} (electron)" ${extra_args} "${app_url}"
 out=$(nativefier --name "${app_name}" --icon "./${favicon}" --width "${window_width}" --height "${window_height}" --user-agent "${app_name} (electron)" ${extra_args} "${app_url}")
+
 path=$(echo "${out}" | tail -n1 | awk -F' to ' '{print $2}')
 dir=$(basename "${path}")
 

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -e
-
 export PATH="${PATH}:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 echo "PATH:          ${PATH}"
@@ -12,12 +11,6 @@ echo "favicon_url:   ${favicon_url}"
 echo "window_width:  ${window_width}"
 echo "window_height: ${window_height}"
 echo "extra_args:    ${extra_args}"
-
-which sips
-which tiff2icns
-nativefier -V
-tar --version
-wget -V
 
 favicon=$(basename "$favicon_url")
 wget "$favicon_url"
@@ -35,8 +28,8 @@ if [  "${favicon##*.}" != "icns" ];then
     exit 1
 fi
 
-echo nativefier --name "${app_name}" --icon "./${favicon}" --width "${window_width}" --height "${window_height}" --user-agent "${app_name} (electron)" ${extra_args} "${app_url}"
 out=$(nativefier --name "${app_name}" --icon "./${favicon}" --width "${window_width}" --height "${window_height}" --user-agent "${app_name} (electron)" ${extra_args} "${app_url}")
+
 dir=$(echo "${out}" | tail -n1 | awk -F' to ' '{print $2}')
 archive="$(echo ${app_name} | sed 's/ /-/g').tar.gz"
 
