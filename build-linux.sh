@@ -15,8 +15,13 @@ favicon=$(basename "$favicon_url")
 wget "$favicon_url"
 
 if [  "${favicon##*.}" != "png" ];then
-    convert -resize 128x128 "icon:favicon.ico[0]" favicon.png
-    favicon="favicon.png"
+    if [ "${favicon##*.}" = "ico" ];then
+        convert -resize 128x128 "icon:${favicon}[0]" favicon.png
+        favicon="favicon.png"
+    else
+        convert -resize 128x128 "${favicon}" favicon.png
+        favicon="favicon.png"
+    fi
 fi
 
 out=$(nativefier --name "${app_name}" --icon "./${favicon}" --width "${window_width}" --height "${window_height}" --user-agent "${app_name} (electron)" ${extra_args} "${app_url}")
