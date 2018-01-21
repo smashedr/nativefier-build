@@ -9,6 +9,8 @@ echo "WORKSPACE:     ${WORKSPACE}"
 echo "app_name:      ${app_name}"
 echo "app_url:       ${app_url}"
 echo "favicon_url:   ${favicon_url}"
+echo "window_width:  ${window_width}"
+echo "window_height: ${window_height}"
 
 favicon=$(basename "$favicon_url")
 wget "$favicon_url"

@@ -3,6 +3,8 @@ Write-Host "WORKSPACE:     $Env:WORKSPACE"
 Write-Host "app_name:      $Env:app_name"
 Write-Host "app_url:       $Env:app_url"
 Write-Host "favicon_url:   $Env:favicon_url"
+Write-Host "window_width:  $Env:window_width"
+Write-Host "window_height: $Env:window_height"
 
 $favicon = $Env:favicon_url.split('/')[-1]
 $ext = $favicon.split('.')[-1]
