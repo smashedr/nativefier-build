@@ -17,7 +17,7 @@ favicon=$(basename "$favicon_url")
 wget "$favicon_url"
 
 if [  "${favicon##*.}" != "png" ];then
-    convert -resize 128x128 "icon:favicon.ico[0]" .\favicon.png
+    convert -resize 128x128 "icon:favicon.ico[0]" favicon.png
     favicon="favicon.png"
 fi
 
