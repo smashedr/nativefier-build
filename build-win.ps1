@@ -17,5 +17,7 @@ magick.exe -version
 Invoke-WebRequest -Uri "$Env:favicon_url" -OutFile ".\$favicon"
 
 if ("$ext" -ne "png") {
-    magick.exe convert -resize 128x128 ".\$favicon[0]" ".\favicon.png"
+    magick convert -resize 128x128 ".\$favicon[0]" ".\favicon.png"
 }
+
+nativefier --name "$Env:app_name" --icon ".\favicon.png" --width "$Env:window_width" --height "$Env:window_height" --user-agent "$Env:app_name (electron)" "$Env:app_url"
