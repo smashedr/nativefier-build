@@ -22,3 +22,10 @@ if ("$ext" -ne "png") {
 }
 
 nativefier --name "$Env:app_name" --icon ".\favicon.png" --width "$Env:window_width" --height "$Env:window_height" --user-agent "$Env:app_name (electron)" "$Env:app_url"
+
+Set-Location "$Env:app_name-win32-x64"
+
+$archive = $Env:app_name.Replace(" ","-") + ".zip"
+$exe = $Env:app_name + ".exe"
+
+7z.exe a "..\$archive" ".\$exe"
