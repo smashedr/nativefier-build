@@ -35,6 +35,7 @@ if [  "${favicon##*.}" != "icns" ];then
     exit 1
 fi
 
+echo nativefier --name "${app_name}" --icon "./${favicon}" --width "${window_width}" --height "${window_height}" --user-agent "${app_name} (electron)" ${extra_args} "${app_url}"
 out=$(nativefier --name "${app_name}" --icon "./${favicon}" --width "${window_width}" --height "${window_height}" --user-agent "${app_name} (electron)" ${extra_args} "${app_url}")
 dir=$(echo "${out}" | tail -n1 | awk -F' to ' '{print $2}')
 archive="$(echo ${app_name} | sed 's/ /-/g').tar.gz"

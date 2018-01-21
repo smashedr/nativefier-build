@@ -23,6 +23,7 @@ if ("$ext" -ne "png") {
     magick convert -resize 128x128 ".\$favicon[0]" ".\favicon.png"
 }
 
+Write-Host nativefier --name "$Env:app_name" --icon ".\favicon.png" --width "$Env:window_width" --height "$Env:window_height" --user-agent "$Env:app_name (electron)" $Env:extra_args "$Env:app_url"
 nativefier --name "$Env:app_name" --icon ".\favicon.png" --width "$Env:window_width" --height "$Env:window_height" --user-agent "$Env:app_name (electron)" $Env:extra_args "$Env:app_url"
 
 $archive = $Env:app_name.Replace(" ","-") + ".zip"

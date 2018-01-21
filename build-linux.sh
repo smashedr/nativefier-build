@@ -24,6 +24,7 @@ if [  "${favicon##*.}" != "png" ];then
     favicon="favicon.png"
 fi
 
+echo nativefier --name "${app_name}" --icon "./${favicon}" --width "${window_width}" --height "${window_height}" --user-agent "${app_name} (electron)" ${extra_args} "${app_url}"
 out=$(nativefier --name "${app_name}" --icon "./${favicon}" --width "${window_width}" --height "${window_height}" --user-agent "${app_name} (electron)" ${extra_args} "${app_url}")
 path=$(echo "${out}" | tail -n1 | awk -F' to ' '{print $2}')
 dir=$(basename "${path}")
