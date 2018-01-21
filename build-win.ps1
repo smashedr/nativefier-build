@@ -17,5 +17,5 @@ magick.exe -version
 Invoke-WebRequest -Uri "$Env:favicon_url" -OutFile ".\$favicon"
 
 if ("$ext" -ne "png") {
-    magick.exe convert ".\$favicon[0]" ".\favicon.png"
+    magick.exe convert -resize 128x128 ".\$favicon[0]" ".\favicon.png"
 }
