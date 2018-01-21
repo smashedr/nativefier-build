@@ -10,6 +10,7 @@ $ext = $favicon.split('.')[-1]
 Write-Host "favicon:       $favicon"
 Write-Host "icon ext:      $ext"
 
+which.exe nativefier
 nativefier -V
 python -V
 magick.exe -version
