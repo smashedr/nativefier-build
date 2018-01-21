@@ -1,13 +1,12 @@
-Write-Host "PATH:          $PATH"
-Write-Host "WORKSPACE:     $WORKSPACE"
-Write-Host "app_name:      $app_name"
-Write-Host "app_url:       $app_url"
-Write-Host "favicon_url:   $favicon_url"
-Write-Host "appdmg_json    $appdmg_json"
+Write-Host "PATH:          $Env:PATH"
+Write-Host "WORKSPACE:     $Env:WORKSPACE"
+Write-Host "app_name:      $Env:app_name"
+Write-Host "app_url:       $Env:app_url"
+Write-Host "favicon_url:   $Env:favicon_url"
 
 $favicon = $path.split('/')[-1]
 
-Write-Host "$favicon       $favicon"
+Write-Host "favicon:       $favicon"
 
 nativefier -V
 python -V
