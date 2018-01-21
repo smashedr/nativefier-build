@@ -21,6 +21,7 @@ if [  "${favicon##*.}" != "png" ];then
     favicon="favicon.png"
 fi
 
-echo "${favicon}"
-
 nativefier --name "${app_name}" --icon "./${favicon}" --width "${window_width}" --height "${window_height}" --user-agent "${app_name} (electron)" "${app_url}"
+
+lname="*-linux-x64"
+tar -czf "${lname}.tar.gz" "${lname}"
